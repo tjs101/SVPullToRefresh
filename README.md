@@ -122,3 +122,14 @@ SVPullToRefresh is brought to you by [Sam Vermette](http://samvermette.com) and 
 Big thanks to [@seb_morel](http://twitter.com/seb_morel) for his [Demistifying the Objective-C runtime](http://cocoaheadsmtl.s3.amazonaws.com/demistifying-runtime.pdf) talk which really helped for this project. 
 
 Hat tip to [Loren Brichter](http://twitter.com/lorenb) for inventing pull-to-refresh.
+
+修改了
+ 其中SVPullToRefresh类
+ //            if(previousState == SVPullToRefreshStateTriggered && pullToRefreshActionHandler)
+ //                pullToRefreshActionHandler();
+ //update by quentin
+ dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+ if(previousState == SVPullToRefreshStateTriggered && pullToRefreshActionHandler)
+ pullToRefreshActionHandler();
+ });
+ **/
